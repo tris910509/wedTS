@@ -595,7 +595,7 @@
 <br><br>
         <!-- Back to Top -->
         <a href="#" id="back-to-top" title="Back to top" class="show">
-<audio controls>
+<audio autoplay controls>
     <source src="real1.mp3" type="audio/mpeg">
 </audio>
 </a>
@@ -616,6 +616,11 @@
     <script src="js/plugins.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
-
+<script type="text/javascript">
+    function playAudio() {
+        var notifikasi = new Audio("real1.mp3");
+        notifikasi.play();
+    }
+</script>
 </body>
 </html>
