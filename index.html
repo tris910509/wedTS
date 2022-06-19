@@ -102,10 +102,6 @@
     </div><br><br><br>
     <!-- End Slider Section -->
 
-<audio autoplay>
-    <source src="real1.mp3" type="audio/mpeg">
-</audio>
-
     <!-- Start Testimonial -->
     <section class="testimonial-1 pad-tb-70">
         <div class="container">
@@ -602,8 +598,49 @@
         <!-- Back to Top -->
         <a href="#" id="back-to-top" title="Back to top" class="show">
 
+<audio id="audioNotifikasi">
+  <source src="notifikasi.mp3" type="audio/mpeg">
+</audio>
+<p>Klik tombol di bawah ini untuk memutar atau pause audio.</p>
+<button onclick="playAudio()" type="button">Play Audio</button>
+<button onclick="pauseAudio()" type="button">Pause Audio</button> 
+<script type="text/javascript">
+var el = document.getElementById("audioNotifikasi"); 
+function playAudio() { 
+  el.play(); 
+} 
+function pauseAudio() { 
+  el.pause(); 
+} 
+</script>
 
 </a>
+
+<script type="text/javascript">
+    function playAudio() {
+        var source = "notifikasi.mp3";
+        var audio = document.createElement("audioNotifikasi");
+        audio.autoplay = true;
+        audio.load()
+        audio.addEventListener("load", function() { 
+            audio.play(); 
+        }, true);
+        audio.src = source;
+    }
+    function cekNotifikasi() {
+        $.ajax({url: "http://url/to/notifikasi", 
+                success: function(totnotif) {
+    
+                if (totnotif > 0) {
+                    //play sound
+                    playAudio();
+                }
+    
+                setTimeout(function(){ cekNotifikasi();}, 60000);//60 detik
+            }
+        });
+    }
+</script>
 
         <!-- Start Footer -->
         <footer class="custom-footer">
