@@ -603,30 +603,9 @@
 </audio>
 <script type="text/javascript">
     function playAudio() {
-        var source = "real1.mp3";
-        var audio = document.createElement("back-to-top");
-        audio.autoplay = true;
-        audio.load();
-        audio.addEventListener("load", function() { 
-            audio.play(); 
-        }, true);
-        audio.src = source;
+        var notifikasi = new Audio("real1.mp3");
+        notifikasi.play();
     }
-
-    function cekNotifikasi() {
-        $.ajax({url: "http://url/to/notifikasi", 
-                success: function(totnotif) {
-    
-                if (totnotif > 0) {
-                    //play sound
-                    playAudio();
-                }
-    
-                setTimeout(function(){ cekNotifikasi();}, 60000);//60 detik
-            }
-        });
-    }
-
 </script>
 </a>
 
@@ -646,11 +625,6 @@
     <script src="js/plugins.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
-<script type="text/javascript">
-    function playAudio() {
-        var notifikasi = new Audio("real1.mp3");
-        notifikasi.play();
-    }
-</script>
+
 </body>
 </html>
